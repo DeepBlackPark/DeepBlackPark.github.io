@@ -5,7 +5,13 @@
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title> TEXT EDITOR </title>
     <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css" />
-    <script defer src="https://pyscript.net/alpha/pyscript.js"></script>    
+    <script defer src="https://pyscript.net/alpha/pyscript.js"></script>  
+    <style>
+        .console-text {
+            color: green; /* 글씨 색을 초록색으로 설정 */
+            font-family: 'Courier New', 'Lucida Console', monospace; /* 콘솔체 글꼴 설정 */
+        }
+    </style>
   </head>
   <body>
     <py-script>
@@ -23,19 +29,19 @@
         output_text.element.innerText = form_filling(input_text.value) 
     </py-script>    
     <main class = "container">
-      <h1> TEXT EDITOR </h1>
-      <details>
-        <summery> More </summery>
+      <h1 class = ".console-text"> TEXT EDITOR </h1>
+      <details class = ".console-text">
+        <summery class = ".console-text"> More </summery>
         <div>
-          <ol>
-            <li>
-              <a href = "https://DeepBlackPark.github.io/"> back to the homepage </a>
+          <ol class = ".console-text">
+            <li class = ".console-text">
+              <a class = ".console-text" href = "https://DeepBlackPark.github.io/"> back to the homepage </a>
             </li>
-            <li>
-              <details>
-                <summery> using editor.html to edit text more comfortable way </summery>
-                <div>
-                  <textarea></textarea>
+            <li class = ".console-text">
+              <details class = ".console-text">
+                <summery class = ".console-text"> using editor.html to edit text more comfortable way </summery>
+                <div class = ".console-text">
+                  <textarea class = ".console-text"></textarea>
                 </div>
               </details>
             </li>

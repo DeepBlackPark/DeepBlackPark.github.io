@@ -6,6 +6,21 @@
   </head>
   <body>
     <py-script>
+      #LOADING $ARGV
+
+      from js import document, window
+
+      url_params = window.location.search
+      params = window.URLSearchParams.new(url_params)
+      v_value = params.get('v')
+      
+      input_element = document.getElementById("TxtI") #Thanks for AI, I'll use it like component
+      input_element.value = v_value if v_value else "" #Thanks for AI, I'll use it like component
+
+      del input_element
+      
+      #LOADING $ARGV
+      
       I = Element("TxtI")
       O = Element("TxtO")
 
@@ -15,10 +30,7 @@
     </py-script>
     <h1> TEXT EDITOR </h1>
     <h2> WARNING : It's Indev. </h2>
-    <?php
-      $vValue = isset($_GET['v']) ? htmlspecialchars($_GET['v']) : '';
-    ?>
-    <input id="TxtI" value="<?php echo $vValue; ?>">
+    <input id="TxtI">
     <button pys-onClick="save"> save </button>
     <p id="TxtO"></p>
   </body>

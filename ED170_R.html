@@ -7,7 +7,7 @@
     <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
   </head>
   <body>
-    <py-script>
+    <!--<py-script>
       #LOADING $ARGV
 
       from js import document, window
@@ -49,6 +49,31 @@
         <input id="TxtI" type="text">
         <button py-click="save"> save </button>
       </div>
-    </div>
+    </div>-->
+    <h1> TEXT EDITOR </h1>
+    <h2> WARNING : It's Indev. </h2>
+    <details>
+      <summery> More </summery>
+      <div>
+        <a href = "https://DeepBlackPark.github.io/"> back to the homepage </a>
+      </div>
+    </details>
+    <py-script>
+      I = Element("input_text")
+      O = Element("output_text")
+
+      def formsFilling(x):
+        return f"https://DeepBlackPark.github.io/ED170_R.html?v={x}"
+      
+      def Saving(*args):
+        O.element.innerText = formsFilling(I.value)
+    </py-script>    
+    <main class = "container">
+      <h1 id = "OutputText"></h1>
+      <div>
+        <input id = "InputText" type="text">
+        <button id = "SaveButton" pys-onClick = "Saving"> save by url </button>
+      </div> 
+    </main>
   </body>
 </html>

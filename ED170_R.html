@@ -8,13 +8,6 @@
     <script defer src="https://pyscript.net/alpha/pyscript.js"></script>    
   </head>
   <body>
-    <h1> TEXT EDITOR </h1>
-    <details>
-      <summery> More </summery>
-      <div>
-        <a href = "https://DeepBlackPark.github.io/"> back to the homepage </a>
-      </div>
-    </details>
     <py-script>
       # html ID "input_text"와 "output_text" 와 연결된 객체 생성
       input_text = Element("input_text")
@@ -30,7 +23,26 @@
         output_text.element.innerText = form_filling(input_text.value) 
     </py-script>    
     <main class = "container">
-      <h1 id = "output_text"></h1>
+      <h1> TEXT EDITOR </h1>
+      <details>
+        <summery> More </summery>
+        <div>
+          <ol>
+            <li>
+              <a href = "https://DeepBlackPark.github.io/"> back to the homepage </a>
+            </li>
+            <li>
+              <details>
+                <summery> using editor.html to edit text more comfortable way </summery>
+                <div>
+                  <textarea></textarea>
+                </div>
+              </details>
+            </li>
+          </ol>
+        </div>
+      </details>
+      <h3 id = "output_text"></h3>
       <div>
         <input id = "input_text" type="text" placeholder="텍스트를 입력하세요">
         <button id = "add_text" pys-onClick ="function_add_text">Click</button>
@@ -45,11 +57,6 @@
               document.getElementById('input_text').value = initialValue;
           }
         </script>
-        <details>
-          <summery> using editor.html to edit text more comfortable way </summery>
-          <div>
-            <textarea></textarea>
-        </details>
       </div> 
     </main>    
   </body>

@@ -1,4 +1,49 @@
 <!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>PyScript input&output</title>
+    <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css" />
+    <script defer src="https://pyscript.net/alpha/pyscript.js"></script>    
+  </head>
+  <body>
+    <py-script>
+      # html ID "input_text"와 "output_text" 와 연결된 객체 생성
+      input_text = Element("input_text")
+      output_text = Element("output_text")
+      y = "https://DeepBlackPark.github.io/ED170_R.html?v="
+
+      def form_filling(x):
+        return f"{y}{x}"
+      
+      # html 에서 생성한 ID "add_text" 의 버튼이 눌렸을 때 호출될 pys-onClick 인자로 설정된 함수 생성
+      def function_add_text(*args):
+        # output_text 객체의 text 값을 input_text의 값으로 지정
+        output_text.element.innerText = form_filling(input_text.value) 
+    </py-script>    
+    <main class = "container">
+      <h1 id = "output_text"></h1>
+      <div>
+        <input id = "input_text" type="text" placeholder="텍스트를 입력하세요">
+        <button id = "add_text" pys-onClick ="function_add_text">Click</button>
+
+        <script>
+          // URL의 쿼리 파라미터에서 'v' 값 추출
+          const urlParams = new URLSearchParams(window.location.search);
+          const initialValue = urlParams.get('v');
+  
+          // 'v' 값이 존재하면 input의 초깃값 설정, 이제는 AI가 나보다 주석을 잘다네..., 그래도 옛날 나는 더 쩔었는데...
+          if (initialValue) {
+              document.getElementById('input_text').value = initialValue;
+          }
+        </script>
+      </div> 
+    </main>    
+  </body>
+</html>
+
+<!--<!DOCTYPE html>
 <html>
   <head>
     <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -49,7 +94,7 @@
         <input id="TxtI" type="text">
         <button py-click="save"> save </button>
       </div>
-    </div>-->
+    </div>- // split!!! // ->
     <h1> TEXT EDITOR </h1>
     <h2> WARNING : It's Indev. </h2>
     <details>
@@ -76,4 +121,28 @@
       </div> 
     </main>
   </body>
+</html>-->
+
+<!-- <!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Input</title>
+</head>
+<body>
+    <input type="text" id="myInput" />
+    <script>
+        // URL의 쿼리 파라미터에서 'v' 값 추출
+        const urlParams = new URLSearchParams(window.location.search);
+        const initialValue = urlParams.get('v');
+
+        // 'v' 값이 존재하면 input의 초깃값 설정
+        if (initialValue) {
+            document.getElementById('myInput').value = initialValue;
+        }
+    </script>
+</body>
 </html>
+-->
+

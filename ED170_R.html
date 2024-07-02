@@ -26,8 +26,13 @@
       I = Element("TxtI")
       O = Element("TxtO")
 
+      def gen_str(x):
+        print(x)
+        return f"https://DeepBlackPark.github.io/ED170_R.html?v={x}"
+
       def save():
-        O.element.innerText = "https://DeepBlackPark.github.io/ED170_R.html?v={}".format(I.value)
+        O.element.innerText = gen_str(I.value)
+        print(O.element.innerText)
       
     </py-script>
     <h1> TEXT EDITOR </h1>
@@ -39,11 +44,11 @@
       </div>
     </details>
     <div class = "container">
+      <p id="TxtO"></p>
       <div>
         <input id="TxtI" type="text">
         <button py-click="save"> save </button>
       </div>
-      <p id="TxtO"></p>
     </div>
   </body>
 </html>

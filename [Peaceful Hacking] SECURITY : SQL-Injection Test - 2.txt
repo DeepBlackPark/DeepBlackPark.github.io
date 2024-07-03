@@ -6,3 +6,151 @@ I'll Post it after Problem is solved.
 
 MAIN :
 
+`https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/?q=%ED%96%A5%EB%8F%99%EA%B3%A0`
+YEAH I FOUND IT (WANING : I'm not Chinese, I hate China, and I'm not Nyen)
+
+`https://hyangdong-h.goegy.kr/hyangdong-h/main.do`
+OH SHIT, It can be access in tor...
+OMG, it's highschool page... It won't be...
+
+`https://hyangdong-h.goegy.kr/hyangdong-h/lo/login/loginTotalPage.do`
+
+let's input `admin' or '1' = '1`
+
+I input pw as "1q2w3e4r"
+
+forturnally It dosen't work.
+but tor is work, it's serious problem.
+
+by wrtn.ai,
+
+"""
+Tor 네트워크를 통해 접속하는 IP 주소를 차단하려면, 주로 Tor의 익스트리미티 노드(Exit Node) 목록을 얻어와서 이를 차단하는 방식이 사용됩니다. 이는 주기적으로 업데이트되어야 하며, 서버의 방화벽이나 웹 애플리케이션 레벨에서 차단할 수 있습니다. 여기서는 PHP를 사용하여 간단하게 Tor Exit Node를 차단하는 예제를 보여드리겠습니다.
+
+1. Tor Exit Node 목록을 가져오는 함수 작성
+2. 클라이언트의 IP가 Tor Exit Node 목록에 있는지 확인
+
+```php
+<?php
+// Tor Exit Node 목록을 가져오는 함수
+function getTorExitNodes() {
+    $url = "https://check.torproject.org/torbulkexitlist";
+    $torExitNodes = file_get_contents($url);
+    return explode("\n", $torExitNodes);
+}
+
+// 클라이언트 IP가 Tor Exit Node 목록에 있는지 확인하는 함수
+function isTorExitNode($clientIp, $torExitNodes) {
+    return in_array($clientIp, $torExitNodes);
+}
+
+// 클라이언트 IP 가져오기
+$clientIp = $_SERVER['REMOTE_ADDR'];
+
+// Tor Exit Node 목록 가져오기
+$torExitNodes = getTorExitNodes();
+
+// 클라이언트 IP가 Tor Exit Node인지 확인
+if (isTorExitNode($clientIp, $torExitNodes)) {
+    // Tor Exit Node일 경우 접속 차단
+    header('HTTP/1.0 403 Forbidden');
+    echo "Access denied.";
+    exit;
+}
+
+// 나머지 사이트 코드
+echo "Welcome to the site!";
+?>
+```
+
+위 코드는 PHP를 사용하여 클라이언트의 IP 주소가 Tor Exit Node 목록에 있는지 확인하고, 만약 있다면 접근을 차단합니다. `https://check.torproject.org/torbulkexitlist`에서 Tor Exit Node 목록을 가져오며, 이는 주기적으로 업데이트됩니다. 
+
+이 코드를 실제로 사용하기 전에, 보안 및 성능상의 이유로 다음 사항을 고려해야 합니다:
+
+1. **캐싱**: 매번 요청 시마다 Tor Exit Node 목록을 가져오는 것은 비효율적일 수 있습니다. 목록을 주기적으로 (예: 하루에 한 번) 갱신하고 캐싱하는 방법을 고려하세요.
+2. **방화벽 설정**: 서버 레벨에서 방화벽을 설정하여 Tor Exit Node를 차단하는 것이 더 효과적일 수 있습니다.
+3. **안전한 구현**: 직접 구현하는 것보다는 검증된 보안 솔루션이나 서비스를 사용하는 것이 더 안전할 수 있습니다.
+
+필요에 따라 추가적인 보안 조치를 취하시기 바랍니다. 
+
+이런 자료를 참고했어요.
+[1] Tor Project - 어니언 서비스 | Tor 프로젝트 | Tor 브라우저 매뉴얼 (https://tb-manual.torproject.org/ko/onion-services/)
+[2] 나무위키 - Tor(익명 네트워크) (https://namu.wiki/w/Tor(%EC%9D%B5%EB%AA%85%20%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC))
+[3] Naver Blog - IP를 숨겨주는 특수한 브라우저 3 - 토르(토어) Tor (https://blog.naver.com/ezpbill/221380832655)
+[4] Tor Project - 어떻게 도와드릴까요? | Tor 프로젝트 | 지원 (https://support.torproject.org/ko/) 
+"""
+
+by English, 
+
+"""
+"""
+To block IP addresses that access through the Tor network, the typical approach is to obtain the list of Tor exit nodes and block them. This list needs to be periodically updated, and the blocking can be done at the server's firewall or at the web application level. Here, I will provide a simple example of blocking Tor exit nodes using PHP.
+
+1. Write a function to fetch the Tor exit node list
+2. Check if the client's IP is in the Tor exit node list
+
+```php
+<?php
+// Function to fetch the Tor exit node list
+function getTorExitNodes() {
+    $url = "https://check.torproject.org/torbulkexitlist";
+    $torExitNodes = file_get_contents($url);
+    return explode("\n", $torExitNodes);
+}
+
+// Function to check if the client's IP is in the Tor exit node list
+function isTorExitNode($clientIp, $torExitNodes) {
+    return in_array($clientIp, $torExitNodes);
+}
+
+// Get the client's IP address
+$clientIp = $_SERVER['REMOTE_ADDR'];
+
+// Fetch the Tor exit node list
+$torExitNodes = getTorExitNodes();
+
+// Check if the client's IP is a Tor exit node
+if (isTorExitNode($clientIp, $torExitNodes)) {
+    // If it's a Tor exit node, block the access
+    header('HTTP/1.0 403 Forbidden');
+    echo "Access denied.";
+    exit;
+}
+
+// Rest of the site code
+echo "Welcome to the site!";
+?>
+```
+
+The code above uses PHP to check if the client's IP address is in the Tor exit node list, and if it is, it blocks the access. The Tor exit node list is fetched from `https://check.torproject.org/torbulkexitlist`, which is periodically updated.
+
+Before using this code in a production environment, consider the following for security and performance reasons:
+
+1. **Caching**: Fetching the Tor exit node list on every request may be inefficient. Consider caching the list and updating it periodically (e.g., once a day).
+2. **Firewall configuration**: Blocking Tor exit nodes at the server level using a firewall may be more effective.
+3. **Secure implementation**: Using a verified security solution or service may be safer than implementing it yourself.
+
+Implement additional security measures as needed.
+
+References:
+[1] Tor Project - Onion Services | Tor Project | Tor Browser Manual (https://tb-manual.torproject.org/onion-services/)
+[2] Namu Wiki - Tor (anonymous network) (https://namu.wiki/w/Tor(anonymous%20network))
+[3] Naver Blog - 3 special browsers that hide your IP - Tor (Teo) (https://blog.naver.com/ezpbill/221380832655)
+[4] Tor Project - How Can We Help? | Tor Project | Support (https://support.torproject.org/)
+
+Go to Wrtn > https://agent.wrtn.ai/5xb91l
+""" 
+
+I referenced this kind of material.
+[1] Lab539 - Conditional Access Policies to Block Tor IPs (https://www.lab539.com/blog/conditional-access-policy-to-block-tor-ips)
+[2] Fortinet - How to block traffic coming from TOR exit nodes (https://community.fortinet.com/t5/FortiGate/Technical-Tip-How-to-block-traffic-coming-from-TOR-exit-nodes/ta-p/190958)
+[3] Tor Project - Tips for Running an Exit Node | The Tor Project (https://blog.torproject.org/tips-running-exit-node/)
+[4] WatchGuard - Enable Tor Exit Node Blocking in a Policy (https://www.watchguard.com/help/docs/help-center/en-US/Content/en-US/Fireware/services/tor/tor_enable_in_policy.html) 
+
+"""
+
+COOL, AI is useful, but don't trust it too much.
+
+So, No problem at all.
+I send email that stop allow tor.
+END.

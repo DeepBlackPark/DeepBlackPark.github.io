@@ -39,4 +39,4 @@ I don't now what to do...
 well
 `nothin' or '1'='1` is it work?
 
-well, now you can be check you'r DB yourself, maybe, I'll come back by "SECURITY : SQL-Injection Test - 2"
+well, now you can be check you'r DB yourself, maybe, I'll come back by "[Peaceful Hacking] SECURITY : SQL-Injection Test - 2"

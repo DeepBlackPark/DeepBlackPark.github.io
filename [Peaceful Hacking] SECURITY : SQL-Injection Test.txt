@@ -1,0 +1,42 @@
+[Peaceful Hacking] SECURITY : SQL-Injection Test
+
+SECURITY is VERY IMPORTDENT thing on this days
+so I started to run it.
+
+Today, I'll run about SQL-injection (DB-SECURITY)
+
+as namuwiki : https://namu.wiki/w/SQL injection
+
+We can try it 3 ways
+
+1. UI SQL EVAL : Login Form
+if login form is programmed like `SELECT user FROM user_table WHERE id='ID that user input' AND password='[PW that user Input]'; (Actually, PW is change to hash(SHA), WARNING : this code is dangerous, user can input SQL)
+At `MySQL`, check ' A ", and If it raise Error, then can be inject SQL.
+
+2. User HTTP.
+at HTTP header, They'll tell you their Server Version and Server System Name.
+
+3. Blind SQL (Actually, I'm not Haker, I don't know How to do it)
+
+Let's Try it test.
+https://duckduckgo.com/?q=SQL (or https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/?q=SQL+injection+Test+Page&ia=web) search injection Test Page (I test it on tor.)
+
+https://ashkiani.github.io/sql-injection-playground/ I used this site.
+
+Let's input pw as `' OR '1' = '1`
+by admin account
+
+umm this site is too difficult.
+
+I've just start it just 1 minute ago.
+
+try it to search "login admin.asp"
+
+"https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/?t=h_&q=login+admin.asp"
+
+I don't now what to do...
+
+well
+`nothin' or '1'='1` is it work?
+
+well, now you can be check you'r DB yourself, maybe, I'll come back by "SECURITY : SQL-Injection Test - 2"

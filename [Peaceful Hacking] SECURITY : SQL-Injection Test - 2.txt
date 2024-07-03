@@ -1,2 +1,8 @@
 [Peaceful Hacking] SECURITY : SQL-Injection Test - 2
 
+let's check any site, and if can login with my account by SQL-injection, I'll sand the mail to the site Admin.
+
+I'll Post it after Problem is solved.
+
+MAIN :
+

@@ -18,6 +18,7 @@
       input_text = Element("input_text")
       output_text = Element("output_text")
       TextAreaZone = Element("TextAreaZone")
+      temp = Element("temp")
       y = "https://DeepBlackPark.github.io/ED170_R.html?v="
 
       def form_filling(x):
@@ -50,10 +51,10 @@
         return ret
 
       def function_IT2TAZ(*args):
-        TextAreaZone.value = typeAdecoding(input_text.value)
+        temp.element.innerText = 'temp : ' + typeAdecoding(input_text.value)
 
       def function_TAZ2IT(*args):
-        input_text.value = TypeAencoding(TextAreaZone.value)
+        temp.element.innerText = 'temp : ' + typeAencoding(TextAreaZone.value)
       
       def function_add_text(*args):
         output_text.element.innerText = form_filling(input_text.value) 
@@ -73,6 +74,7 @@
                 <summary class = ".console-text"> using editor.html to edit text more comfortable way </summary>
                 <div class = ".console-text">
                   <textarea id = "TextAreaZone" class = ".console-text"></textarea><br>
+                  <p id="temp" class=".console-text"></p><br>
                   <button id = "IT2TAZ" pys-onClick = "function_IT2TAZ"> Load </button> <button id = "TAZ2IT" pys-onClick = "function_TAZ2IT"> Dump </button>
                 </div>
               </details>

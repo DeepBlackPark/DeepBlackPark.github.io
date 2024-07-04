@@ -15,18 +15,50 @@
   </head>
   <body>
     <py-script>
-      # html ID "input_text"와 "output_text" 와 연결된 객체 생성
       input_text = Element("input_text")
       output_text = Element("output_text")
+      TextAreaZone = Element("TextAreaZone")
+      temp = Element("temp")
       y = "https://DeepBlackPark.github.io/ED170_R.html?v="
 
       def form_filling(x):
         return f"{y}{x}"
       
-      # html 에서 생성한 ID "add_text" 의 버튼이 눌렸을 때 호출될 pys-onClick 인자로 설정된 함수 생성
+      def typeAencoding(x): #perfact.
+        return x.replace('\\', '\\\\').replace('\n', '\\n')
+
+      def typeAdecoding(x): #perfact.
+        ret = ''
+        escapelevel = 0
+        for i in list(x):
+          if i == '\\':
+            escapelevel += 1
+          elif i == 'n' and escapelevel:
+            ret += '\\' * (escapelevel//2)
+            if escapelevel%2:
+              ret += '\n'
+            else:
+              ret += 'n'
+            escapelevel = 0
+          elif escapelevel:
+            ret += '\\' * (escapelevel//2) + i
+            escapelevel = 0
+          else:
+            ret += i
+        else:
+          if escapelevel:
+            ret += '\\' * (escapelevel//2)
+        return ret
+
+      def function_IT2TAZ(*args):
+        temp.element.innerText = 'temp : ' + typeAdecoding(input_text.value)
+
+      def function_TAZ2IT(*args):
+        temp.element.innerText = 'temp : ' + typeAencoding(TextAreaZone.value)
+      
       def function_add_text(*args):
-        # output_text 객체의 text 값을 input_text의 값으로 지정
         output_text.element.innerText = form_filling(input_text.value) 
+      
     </py-script>    
     <main class = "container">
       <h1 class = ".console-text"> TEXT EDITOR </h1>
@@ -41,7 +73,9 @@
               <details class = ".console-text">
                 <summary class = ".console-text"> using editor.html to edit text more comfortable way </summary>
                 <div class = ".console-text">
-                  <textarea class = ".console-text"></textarea>
+                  <textarea id = "TextAreaZone" class = ".console-text"></textarea><br>
+                  <p id="temp" class=".console-text"></p><br>
+                  <button id = "IT2TAZ" pys-onClick = "function_IT2TAZ"> Load </button> <button id = "TAZ2IT" pys-onClick = "function_TAZ2IT"> Dump </button>
                 </div>
               </details>
             </li>

@@ -189,7 +189,10 @@
           }
 
           if (IDEDV){
-            let srcs = (IDEDV.slice(1).split(IDEDV.charAt(0))).map(I => `    <option value = "${I}" />`).join('\n');
+            let srcs = '';
+            (IDEDV.slice(1).split(IDEDV.charAt(0))).forEach(I => {
+              srcs += `    <option value = "${I}" />\n`;
+            });
             targets.innerHTML = `<input type = "text" list = "IDEAutocom" />\n<datalist id = "IDEAutocom">\n${srcs}\n</datalist>`;
           } else {
             targets.innerHTML = "<p> no IDE init data, no IDED data in URL Query </p>";

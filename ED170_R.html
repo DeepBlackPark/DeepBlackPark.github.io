@@ -73,9 +73,27 @@
               <details class = ".console-text">
                 <summary class = ".console-text"> using editor.html to edit text more comfortable way </summary>
                 <div class = ".console-text">
-                  <textarea id = "TextAreaZone" class = ".console-text"></textarea><br>
-                  <p id="temp" class=".console-text"></p><br>
-                  <button id = "IT2TAZ" pys-onClick = "function_IT2TAZ"> Load </button> <button id = "TAZ2IT" pys-onClick = "function_TAZ2IT"> Dump </button>
+                  <ol>
+                    <li>
+                      <textarea id = "TextAreaZone" class = ".console-text"></textarea>
+                    </li>
+                    <li>
+                      <details>
+                        <summary> online string field online zip load(unzip) and dump(zip)er, Normal Text Area(editor.html) must be zipped if you make save url. </summary>
+                        <div>
+                          <p id="temp" class=".console-text"></p><br>
+                          <button id = "IT2TAZ" pys-onClick = "function_IT2TAZ"> Load the one line string field data into TextArea (unzipping On Line Format) </button> <button id = "TAZ2IT" pys-onClick = "function_TAZ2IT"> Dump to normal on line string field (zipping into OneLineFormat) </button>
+                        </div>
+                      </details>
+                    </li>
+                    <li>
+                      <details>
+                        <summary> IDE options </summary>
+                        <div id = "IDEoptions">
+                        </div>
+                      </details>
+                    </li>
+                  </ol>
                 </div>
               </details>
             </li>
@@ -91,10 +109,19 @@
           // URL의 쿼리 파라미터에서 'v' 값 추출
           const urlParams = new URLSearchParams(window.location.search);
           const initialValue = urlParams.get('v');
+          let IDEDV = urlParams.get('IDED');
+          const targets = document.getElementById('IDEoptions');
   
           // 'v' 값이 존재하면 input의 초깃값 설정, 이제는 AI가 나보다 주석을 잘다네..., 그래도 옛날 나는 더 쩔었는데...
           if (initialValue) {
               document.getElementById('input_text').value = initialValue;
+          }
+
+          if (IDEDV){
+            let srcs = (IDEDV.slice(1).split(IDEDV.charAt(0))).map(I => `    <option value = "${I}" />`).join('\n');
+            targets.innerHTML = `<input type = "text" list = "IDEAutocom" />\n<datalist id = "IDEAutocom">\n${srcs}\n</datalist>`;
+          } else {
+            targets.innerHTML = "<p> no IDE init data, no IDED data in URL Query </p>";
           }
         </script>
       </div> 
